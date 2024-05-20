@@ -1,4 +1,3 @@
-import { BsTicketPerforated } from "react-icons/bs";
 import { queueRequest } from "./apiQueue";
 import { unstable_cache as cache } from "next/cache";
 // import "server-only";
@@ -18,12 +17,12 @@ export const getCatalouge = cache(async (q) => {
     options
   ).then((res) => res?.json().then((results) => Promise.resolve(results)));
 });
-export const getSymbols = cache(async (s) => {
+export const getSymbols = async (s) => {
   return await queueRequest(
     `${BASE_URL}markets/stock/quotes?symbol=${s}`,
     options
   ).then((res) => res?.json().then((results) => Promise.resolve(results)));
-});
+};
 
 export const getSearchAPI = cache(async (keyword) => {
   return queueRequest(

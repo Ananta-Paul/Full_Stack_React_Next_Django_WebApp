@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
           },
         };
         const res = await axios.post(
-          `http://127.0.0.1:8000/api/token/refresh/`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}api/token/refresh/`,
           {
             refresh: Tokens.refresh,
           },

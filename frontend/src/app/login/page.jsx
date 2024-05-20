@@ -85,7 +85,7 @@ const Login = () => {
   async function sendData(user, e) {
     try {
       const api_url =
-        "http://127.0.0.1:8000/" +
+        process.env.NEXT_PUBLIC_BASE_URL +
         (state === "sign up" ? "api/user/register/" : "api/token/");
 
       // console.log(api_url);
@@ -103,8 +103,6 @@ const Login = () => {
         if (state === "sign up") {
           e.target.reset();
           setState("log in");
-          setError("Account Created Successfully");
-          animate();
         } else {
           setTokens(resdata);
           router.push(callbackUrl);

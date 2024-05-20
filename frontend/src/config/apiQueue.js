@@ -16,7 +16,7 @@ const apiQueue = new PQueue({
 // }
 
 export async function queueRequest(endpoint, options) {
-  console.log("queueRequest", endpoint);
+  //console.log("queueRequest", endpoint);
   return apiQueue.add(async () => {
     // console.log(endpoint);
     return await fetch(endpoint, options).catch((error) => {});

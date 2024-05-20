@@ -18,7 +18,7 @@ const Page = () => {
     { refreshInterval: 10000 }
   );
   useEffect(() => {
-    console.log([...list.keys()].join(","), data, error, isLoading);
+    //console.log([...list.keys()].join(","), data, error, isLoading);
   }, [data, error, isLoading]);
   useEffect(() => {
     if (data?.body) setStocks(data);

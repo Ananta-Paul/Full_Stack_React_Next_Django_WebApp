@@ -8,7 +8,7 @@ const SearchServerActions = ({ searchHandler }) => {
 
   useEffect(() => {
     if (searchKeyword.prev === searchKeyword.pres) return;
-    console.log(searchKeyword);
+    //console.log(searchKeyword);
     setSearchKeyword((pre) => ({ ...pre, prev: pre.pres }));
     startTransition(() => {
       searchHandler(searchKeyword.pres);

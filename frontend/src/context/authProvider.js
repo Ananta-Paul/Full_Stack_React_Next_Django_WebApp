@@ -50,7 +50,7 @@ const AuthProvider = ({ children }) => {
           },
           config
         );
-        console.log("Refresh", res);
+        //console.log("Refresh", res);
         setTokens((pre) => {
           return { ...pre, access: res.data.access };
         });

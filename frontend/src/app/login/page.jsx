@@ -38,7 +38,7 @@ const Login = () => {
     setLoading(true);
     e.preventDefault();
     const formdata = new FormData(e.target);
-    console.log(formdata.get("username"), formdata.get("password"));
+    //console.log(formdata.get("username"), formdata.get("password"));
     if (state === "sign up") {
       if (formdata.get("password") !== formdata.get("cpassword")) {
         cPasswordRef.current.setCustomValidity("Passwords Don't Match");
@@ -96,9 +96,9 @@ const Login = () => {
         },
         body: JSON.stringify(user),
       });
-      console.log(res);
+      //console.log(res);
       const resdata = await res.json();
-      console.log(resdata);
+      //console.log(resdata);
       if (res.ok) {
         if (state === "sign up") {
           e.target.reset();
@@ -112,7 +112,7 @@ const Login = () => {
         animate();
       }
     } catch (error) {
-      console.log("Error during registration: ", error);
+      //console.log("Error during registration: ", error);
       setError("Error during registration: ");
       animate();
     }

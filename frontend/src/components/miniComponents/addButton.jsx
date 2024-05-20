@@ -20,7 +20,7 @@ const AddButton = ({ symbol, content, setWatchList }) => {
     event.stopPropagation();
     try {
       await authCheck();
-      console.log("adding...");
+      //console.log("adding...");
       // return;
       const config = {
         headers: {
@@ -33,7 +33,7 @@ const AddButton = ({ symbol, content, setWatchList }) => {
         { symbol, content },
         config
       );
-      console.log(data);
+      //console.log(data);
       if (data.status === 201) {
         setList((prevMap) => new Map(prevMap.set(symbol, data.data.id)));
       }
@@ -79,7 +79,7 @@ const AddButton = ({ symbol, content, setWatchList }) => {
     event.stopPropagation();
     try {
       await authCheck();
-      console.log("adding...");
+      //console.log("adding...");
       // return;
       const config = {
         headers: {

@@ -33,7 +33,7 @@ export const getSearchAPI = cache(async (keyword) => {
       if (res.ok) {
         return res?.json();
       } else {
-        console.log(`Error: ${res.status} ${res.statusText}`);
+        //console.log(`Error: ${res.status} ${res.statusText}`);
         throw new Error("Something went wrong!");
       }
     })

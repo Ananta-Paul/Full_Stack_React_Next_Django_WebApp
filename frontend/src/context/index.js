@@ -36,7 +36,7 @@ export default function GlobalState({ children }) {
   const getTheme = () => {
     if (typeof window !== "undefined") {
       const storedTheme = window.localStorage.getItem("theme");
-      console.log(storedTheme);
+      //console.log(storedTheme);
       if (!!storedTheme) {
         try {
           const th = JSON.parse(storedTheme);
@@ -66,7 +66,7 @@ export default function GlobalState({ children }) {
   };
 
   async function getList(key) {
-    console.log("Getting List", Tokens);
+    //console.log("Getting List", Tokens);
     let authkey = key ? key : Tokens?.access;
     if (!authkey) return;
     try {
@@ -109,8 +109,8 @@ export default function GlobalState({ children }) {
     }
   }, [theme]);
   useEffect(() => {
-    console.log(list);
-    // window.localStorage.setItem("watchlist", JSON.stringify(Array.from(list)));
+    //console.log(list);
+    window.localStorage.setItem("watchlist", JSON.stringify(Array.from(list)));
   }, [list]);
 
   return (

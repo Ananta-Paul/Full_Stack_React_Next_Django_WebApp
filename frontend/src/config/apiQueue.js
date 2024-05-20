@@ -1,9 +1,9 @@
 // import "server-only";
 import PQueue from "p-queue";
-const jikanQueue = new PQueue({
+const apiQueue = new PQueue({
   concurrency: 1,
   intervalCap: 1,
-  interval: 500,
+  interval: 5000,
 });
 
 // function getCurrentTime() {
@@ -16,8 +16,8 @@ const jikanQueue = new PQueue({
 // }
 
 export async function queueRequest(endpoint, options) {
-  // console.log("queueRequest", endpoint, options);
-  return jikanQueue.add(async () => {
+  console.log("queueRequest", endpoint);
+  return apiQueue.add(async () => {
     // console.log(endpoint);
     return await fetch(endpoint, options).catch((error) => {});
   });

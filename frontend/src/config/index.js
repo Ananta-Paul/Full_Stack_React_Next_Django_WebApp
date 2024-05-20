@@ -18,14 +18,14 @@ export const getCatalouge = cache(async (q) => {
     options
   ).then((res) => res?.json().then((results) => Promise.resolve(results)));
 });
-export const getSymbols = async (s) => {
+export const getSymbols = cache(async (s) => {
   return await queueRequest(
     `${BASE_URL}markets/stock/quotes?symbol=${s}`,
     options
   ).then((res) => res?.json().then((results) => Promise.resolve(results)));
-};
+});
 
-export const getSearchAPI = async (keyword) => {
+export const getSearchAPI = cache(async (keyword) => {
   return queueRequest(
     `${BASE_URL}markets/stock/quotes?symbol=${keyword}`,
     options
@@ -39,7 +39,7 @@ export const getSearchAPI = async (keyword) => {
       }
     })
     .then((res) => Promise.resolve(res));
-};
+});
 
 export async function formatCompactNumber(number) {
   if (number < 1000) {

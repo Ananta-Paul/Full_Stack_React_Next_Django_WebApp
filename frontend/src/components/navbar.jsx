@@ -70,7 +70,7 @@ const Navbar = () => {
 
   // useEffect(() => {
   //   if (path == "/my_list") setTimeout(() => refResh(), 1000);
-  //   console.log(path);
+  //console.log(path);
   // }, [path]);
   // useEffect(() => {
   //   searchHandler(searchKeyword);

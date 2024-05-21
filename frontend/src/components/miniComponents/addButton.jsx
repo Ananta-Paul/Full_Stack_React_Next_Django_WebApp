@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { GlobalContext } from "@/context/index";
 import axios from "axios";
 const AddButton = ({ symbol, content, setWatchList }) => {
-  //console.log(modlist);
   const router = useRouter();
   const path = usePathname();
   const [isPending, startTransition] = useTransition();
@@ -42,38 +41,6 @@ const AddButton = ({ symbol, content, setWatchList }) => {
       return;
     }
     //console.log("adding...");
-    // const formData = {
-    //   mal_id: stock.mal_id,
-    //   title: stock?.title_english ? stock.title_english : stock.title,
-    //   rank: stock?.rank,
-    //   episodes: stock?.episodes,
-    //   score: stock?.score,
-    //   genres: await stock?.genres.map((cur) => ({
-    //     mal_id: cur.mal_id,
-    //     name: cur.name,
-    //   })),
-    //   type: stock?.type,
-    //   image: stock?.images?.jpg?.large_image_url,
-    // };
-    // try {
-    //   const res = await fetch("/api/list/add-to-list", {
-    //     method: "POST",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({ stock: formData }),
-    //   });
-    //   const data = await res.json();
-    //   if (data.success) {
-    //     setStatus(data?.data?._id);
-    //     //console.log(data?.data);
-    //     // setList((pre) => [...pre, data.data]);
-    //     //mutate("/my_list");
-    //   } else setStatus(null);
-    //   return data;
-    // } catch (e) {
-    //   console.log(e);
-    // }
   };
   const removeFromList = async (event) => {
     event.stopPropagation();
@@ -109,27 +76,8 @@ const AddButton = ({ symbol, content, setWatchList }) => {
       console.log(e);
       return;
     }
-    // if (!session) {
-    //   signIn(undefined, { callbackUrl: path });
-    //   return;
-    // }
-    // //console.log(stock?.title);
-    // if (status && modlist) await modlist(status);
-    // if (status) await removeItem({ id: status, samePath: path === "/my_list" });
-    // //mutate("/my_list");
-    // setStatus(null);
   };
 
-  // useEffect(() => {
-  //   // console.log(path, stock?._id);
-  //   console.log(list);
-  //   // if (stock?._id) {
-  //   //   setStatus(stock?._id);
-  //   //   return;
-  //   // }
-  //   // if (!session) setStatus(null);
-  //   // else if (status === undefined) isAlreadyAdded();
-  // }, [status]);
   return (
     <button
       disabled={isPending || status === undefined}

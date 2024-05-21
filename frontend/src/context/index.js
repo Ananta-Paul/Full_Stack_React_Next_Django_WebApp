@@ -19,15 +19,16 @@ export default function GlobalState({ children }) {
   function getWatchList() {
     if (typeof window === "undefined") return;
     const storedList = localStorage.getItem("watchlist");
+
     if (storedList) {
       try {
         return new Map(JSON.parse(storedList));
       } catch (e) {
         console.error("Error parsing stored list:", e);
         localStorage.removeItem("watchlist");
-        getList();
       }
     }
+    return new Map();
   }
   const [list, setList] = useState(getWatchList());
   let r = 0;
@@ -81,7 +82,7 @@ export default function GlobalState({ children }) {
         config
       );
       // const data = await res.json();
-      // console.log(data);
+      //console.log(data);
       if (data?.status === 200) {
         setList(new Map(data.data.map((item) => [item.symbol, item.id])));
       } else setList(new Map());
@@ -97,6 +98,7 @@ export default function GlobalState({ children }) {
 
   useEffect(() => {
     if (!!Tokens?.access) getList();
+    else setList(new Map());
   }, [Tokens]);
 
   useEffect(() => {
@@ -110,6 +112,7 @@ export default function GlobalState({ children }) {
   }, [theme]);
   useEffect(() => {
     //console.log(list);
+    if (typeof window === "undefined") return;
     window.localStorage.setItem("watchlist", JSON.stringify(Array.from(list)));
   }, [list]);
 

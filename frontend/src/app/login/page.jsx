@@ -28,10 +28,6 @@ const Login = () => {
   const cPasswordRef = useRef();
 
   const callbackUrl = searchParams.get("callbackUrl") || "/";
-  // console.log(callbackUrl);
-  // useEffect(() => {
-  //   if (status === "authenticated") location.replace(callbackUrl);
-  // }, [status]);
 
   const submitHandler = async (e) => {
     // validCheak();
@@ -54,41 +50,19 @@ const Login = () => {
       username: formdata.get("username"),
       password: formdata.get("password"),
     };
-    // console.log("user", user);
-    // console.log(process.env.Ananta);
+    //console.log("user", user);
+    //console.log(process.env.Ananta);
     await sendData(user, e);
     setLoading(false);
   };
-  // async function loginCred() {
-  //   const res = await signIn("credentials", {
-  //     email,
-  //     password,
-  //     redirect: false,
-  //     callbackUrl,
-  //   });
 
-  //   console.log(res);
-  //   if (res.error) {
-  //     setError("Invalid Credentials");
-  //     animate();
-  //     return;
-  //   }
-  //   if (res.ok) {
-  //     setCPassword("");
-  //     setPassword("");
-  //     setEmail("");
-  //     setName("");
-  //     // console.log("cU" + callbackUrl);
-  //     location.replace(callbackUrl);
-  //   }
-  // }
   async function sendData(user, e) {
     try {
       const api_url =
         process.env.NEXT_PUBLIC_BASE_URL +
         (state === "sign up" ? "api/user/register/" : "api/token/");
 
-      // console.log(api_url);
+      //console.log(api_url);
       const res = await fetch(api_url, {
         method: "POST",
         headers: {
@@ -112,7 +86,7 @@ const Login = () => {
         animate();
       }
     } catch (error) {
-      //console.log("Error during registration: ", error);
+      console.log("Error during registration: ", error);
       setError("Error during registration: ");
       animate();
     }

@@ -25,17 +25,15 @@ const AuthProvider = ({ children }) => {
         try {
           return JSON.parse(storedTokens);
         } catch (e) {
-          console.error("Error parsing stored tokens:", e);
+          ////console.error("Error parsing stored tokens:", e);
         }
       }
     }
     return null;
   });
-  // console.log(path);
   async function authCheck() {
     if (!Tokens?.refresh) {
       router.push("/login");
-      throw new Error("Not Authenticated");
     } else if (jwtDecode(Tokens?.access).exp < Date.now() / 1000) {
       try {
         const config = {
@@ -58,7 +56,6 @@ const AuthProvider = ({ children }) => {
         console.log(error);
         setTokens(null);
         router.push("/login");
-        throw new Error("Token Expired");
       }
     }
   }

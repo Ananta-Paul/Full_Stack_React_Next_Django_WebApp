@@ -11,13 +11,14 @@ export const options = {
   },
 };
 export const getCatalouge = cache(async (q) => {
-  // console.log("modtpop");
+  //console.log("modtpop");
   return await queueRequest(
     `${BASE_URL}markets/screener?list=${q}`,
     options
   ).then((res) => res?.json().then((results) => Promise.resolve(results)));
 });
 export const getSymbols = async (s) => {
+  if (s === "") return Promise.resolve({ body: [] });
   return await queueRequest(
     `${BASE_URL}markets/stock/quotes?symbol=${s}`,
     options

@@ -27,14 +27,13 @@ const Page = () => {
 
   //   const getStocks = async () => {
   //     const ss = [...list.keys()].join(",");
-  //     console.log(ss);
   //     if (ss === "") {
   //       setStocks({ body: [] });
   //       return;
   //     }
   //     try {
 
-  //       console.log(data, error, isLoading);
+  //       //console.log(data, error, isLoading);
   //       if (data?.body) setStocks(data);
   //     } catch (e) {
   //       console.log(e);
